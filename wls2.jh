@@ -1,0 +1,107 @@
+
+entity Geregistreerde {
+	voornamen String required
+  	achternaam String required
+    geboortedatum Instant required
+    geboorteplaats String required
+    registerNummer Long required
+    classificatie String required
+    personeelnummer String
+    mailadres String
+    telefoonNummer String
+    mobieleNummer String
+    verantwoordelijkeCrest String required
+    naam String required
+}
+
+entity Classificatie {
+	classificatie String required
+    kleur String
+    omschrijving String required
+}
+
+entity Crest {
+	verantwoordelijkeCrest String required
+    naamEntiteit String required
+}
+
+entity Medewerker {
+	naam String required
+    functie String required
+}
+
+/*
+entity Region {
+	regionName String
+}
+
+entity Country {
+	countryName String
+}
+
+
+entity Job {
+	jobTitle String,
+	minSalary Long,
+	maxSalary Long
+}
+
+entity JobHistory {
+	startDate Instant,
+	endDate Instant,
+	language Language
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+relationship OneToOne {
+	Country{region} to Region
+}
+
+relationship OneToOne {
+	Location{country} to Country
+}
+
+relationship OneToOne {
+	Department{location} to Location
+}
+
+relationship ManyToMany {
+	Job{task(title)} to Task{job}
+}
+*/
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Crest to Geregistreerde{verantwoordelijkeCrest},
+	/**
+	* A relationship
+	*/
+	Medewerker to Geregistreerde{naam}
+    Classificatie to Geregistreerde{classificatie}
+}
+/*
+relationship ManyToOne {
+	Employee{manager} to Employee
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	JobHistory{job} to Job,
+	JobHistory{department} to Department,
+	JobHistory{employee} to Employee
+}
+*/
+// Set pagination options
+// paginate Geregistreerde with infinite-scroll
+paginate Geregistreerde with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Crest, Medewerker, Classificatie
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

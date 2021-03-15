@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-medewerker-heading" jhiTranslate="jhipsterWlsApp.medewerker.home.createOrEditLabel">Create or edit a Medewerker</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.medewerker.naam" for="field_naam">Naam</label>
+                    <input type="text" class="form-control" name="naam" id="field_naam"
+                           formControlName="naam"/>
+                    <div *ngIf="editForm.get('naam')!.invalid && (editForm.get('naam')!.dirty || editForm.get('naam')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('naam')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.medewerker.functie" for="field_functie">Functie</label>
+                    <input type="text" class="form-control" name="functie" id="field_functie"
+                           formControlName="functie"/>
+                    <div *ngIf="editForm.get('functie')!.invalid && (editForm.get('functie')!.dirty || editForm.get('functie')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('functie')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

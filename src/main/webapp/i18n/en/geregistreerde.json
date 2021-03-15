@@ -1,0 +1,37 @@
+{
+  "jhipsterWlsApp": {
+    "geregistreerde": {
+      "home": {
+        "title": "Geregistreerdes",
+        "createLabel": "Create a new Geregistreerde",
+        "createOrEditLabel": "Create or edit a Geregistreerde",
+        "search": "Search for Geregistreerde",
+        "notFound": "No Geregistreerdes found"
+      },
+      "created": "A new Geregistreerde is created with identifier {{ param }}",
+      "updated": "A Geregistreerde is updated with identifier {{ param }}",
+      "deleted": "A Geregistreerde is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geregistreerde {{ id }}?"
+      },
+      "detail": {
+        "title": "Geregistreerde"
+      },
+      "voornamen": "Voornamen",
+      "achternaam": "Achternaam",
+      "geboortedatum": "Geboortedatum",
+      "geboorteplaats": "Geboorteplaats",
+      "registerNummer": "Register Nummer",
+      "classificatie": "Classificatie",
+      "personeelnummer": "Personeelnummer",
+      "mailadres": "Mailadres",
+      "telefoonNummer": "Telefoon Nummer",
+      "mobieleNummer": "Mobiele Nummer",
+      "verantwoordelijkeCrest": "Verantwoordelijke Crest",
+      "naam": "Naam",
+      "verantwoordelijkeCrest": "Verantwoordelijke Crest",
+      "naam": "Naam",
+      "classificatie": "Classificatie"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "jhipsterWlsApp": {
+    "crest": {
+      "home": {
+        "title": "Crests",
+        "createLabel": "Maak een nieuwe Crest",
+        "createOrEditLabel": "Maak of wijzig een Crest",
+        "search": "Search for Crest",
+        "notFound": "No Crests found"
+      },
+      "created": "A new Crest is created with identifier {{ param }}",
+      "updated": "A Crest is updated with identifier {{ param }}",
+      "deleted": "A Crest is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Crest {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Crest"
+      },
+      "verantwoordelijkeCrest": "Verantwoordelijke Crest",
+      "naamEntiteit": "Naam Entiteit",
+      "geregistreerde": "Geregistreerde"
+    }
+  }
+}

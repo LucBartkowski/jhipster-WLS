@@ -1,0 +1,26 @@
+{
+  "jhipsterWlsApp": {
+    "classificatie": {
+      "home": {
+        "title": "Classificaties",
+        "createLabel": "Create a new Classificatie",
+        "createOrEditLabel": "Create or edit a Classificatie",
+        "search": "Search for Classificatie",
+        "notFound": "No Classificaties found"
+      },
+      "created": "A new Classificatie is created with identifier {{ param }}",
+      "updated": "A Classificatie is updated with identifier {{ param }}",
+      "deleted": "A Classificatie is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Classificatie {{ id }}?"
+      },
+      "detail": {
+        "title": "Classificatie"
+      },
+      "classificatie": "Classificatie",
+      "kleur": "Kleur",
+      "omschrijving": "Omschrijving",
+      "geregistreerde": "Geregistreerde"
+    }
+  }
+}

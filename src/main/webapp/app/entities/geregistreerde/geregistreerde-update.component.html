@@ -1,0 +1,179 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-geregistreerde-heading" jhiTranslate="jhipsterWlsApp.geregistreerde.home.createOrEditLabel">Create or edit a Geregistreerde</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.voornamen" for="field_voornamen">Voornamen</label>
+                    <input type="text" class="form-control" name="voornamen" id="field_voornamen"
+                           formControlName="voornamen"/>
+                    <div *ngIf="editForm.get('voornamen')!.invalid && (editForm.get('voornamen')!.dirty || editForm.get('voornamen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('voornamen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.achternaam" for="field_achternaam">Achternaam</label>
+                    <input type="text" class="form-control" name="achternaam" id="field_achternaam"
+                           formControlName="achternaam"/>
+                    <div *ngIf="editForm.get('achternaam')!.invalid && (editForm.get('achternaam')!.dirty || editForm.get('achternaam')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('achternaam')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.geboortedatum" for="field_geboortedatum">Geboortedatum</label>
+                    <div class="d-flex">
+                        <input id="field_geboortedatum" type="datetime-local" class="form-control" name="geboortedatum" formControlName="geboortedatum" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('geboortedatum')!.invalid && (editForm.get('geboortedatum')!.dirty || editForm.get('geboortedatum')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('geboortedatum')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('geboortedatum')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.geboorteplaats" for="field_geboorteplaats">Geboorteplaats</label>
+                    <input type="text" class="form-control" name="geboorteplaats" id="field_geboorteplaats"
+                           formControlName="geboorteplaats"/>
+                    <div *ngIf="editForm.get('geboorteplaats')!.invalid && (editForm.get('geboorteplaats')!.dirty || editForm.get('geboorteplaats')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('geboorteplaats')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.registerNummer" for="field_registerNummer">Register Nummer</label>
+                    <input type="number" class="form-control" name="registerNummer" id="field_registerNummer"
+                           formControlName="registerNummer"/>
+                    <div *ngIf="editForm.get('registerNummer')!.invalid && (editForm.get('registerNummer')!.dirty || editForm.get('registerNummer')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('registerNummer')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('registerNummer')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.classificatie" for="field_classificatie">Classificatie</label>
+                    <input type="text" class="form-control" name="classificatie" id="field_classificatie"
+                           formControlName="classificatie"/>
+                    <div *ngIf="editForm.get('classificatie')!.invalid && (editForm.get('classificatie')!.dirty || editForm.get('classificatie')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('classificatie')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.personeelnummer" for="field_personeelnummer">Personeelnummer</label>
+                    <input type="text" class="form-control" name="personeelnummer" id="field_personeelnummer"
+                           formControlName="personeelnummer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.mailadres" for="field_mailadres">Mailadres</label>
+                    <input type="text" class="form-control" name="mailadres" id="field_mailadres"
+                           formControlName="mailadres"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.telefoonNummer" for="field_telefoonNummer">Telefoon Nummer</label>
+                    <input type="text" class="form-control" name="telefoonNummer" id="field_telefoonNummer"
+                           formControlName="telefoonNummer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.mobieleNummer" for="field_mobieleNummer">Mobiele Nummer</label>
+                    <input type="text" class="form-control" name="mobieleNummer" id="field_mobieleNummer"
+                           formControlName="mobieleNummer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.verantwoordelijkeCrest" for="field_verantwoordelijkeCrest">Verantwoordelijke Crest</label>
+                    <input type="text" class="form-control" name="verantwoordelijkeCrest" id="field_verantwoordelijkeCrest"
+                           formControlName="verantwoordelijkeCrest"/>
+                    <div *ngIf="editForm.get('verantwoordelijkeCrest')!.invalid && (editForm.get('verantwoordelijkeCrest')!.dirty || editForm.get('verantwoordelijkeCrest')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('verantwoordelijkeCrest')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.naam" for="field_naam">Naam</label>
+                    <input type="text" class="form-control" name="naam" id="field_naam"
+                           formControlName="naam"/>
+                    <div *ngIf="editForm.get('naam')!.invalid && (editForm.get('naam')!.dirty || editForm.get('naam')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('naam')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.verantwoordelijkeCrest" for="field_verantwoordelijkeCrest">Verantwoordelijke Crest</label>
+                    <select class="form-control" id="field_verantwoordelijkeCrest" name="verantwoordelijkeCrest" formControlName="verantwoordelijkeCrest">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="crestOption.id === editForm.get('verantwoordelijkeCrest')!.value?.id ? editForm.get('verantwoordelijkeCrest')!.value : crestOption" *ngFor="let crestOption of crests; trackBy: trackById">{{ crestOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.naam" for="field_naam">Naam</label>
+                    <select class="form-control" id="field_naam" name="naam" formControlName="naam">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medewerkerOption.id === editForm.get('naam')!.value?.id ? editForm.get('naam')!.value : medewerkerOption" *ngFor="let medewerkerOption of medewerkers; trackBy: trackById">{{ medewerkerOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.geregistreerde.classificatie" for="field_classificatie">Classificatie</label>
+                    <select class="form-control" id="field_classificatie" name="classificatie" formControlName="classificatie">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="classificatieOption.id === editForm.get('classificatie')!.value?.id ? editForm.get('classificatie')!.value : classificatieOption" *ngFor="let classificatieOption of classificaties; trackBy: trackById">{{ classificatieOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

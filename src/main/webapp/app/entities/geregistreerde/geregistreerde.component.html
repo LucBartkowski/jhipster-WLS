@@ -1,0 +1,129 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterWlsApp.geregistreerde.home.title">Geregistreerdes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-geregistreerde" [routerLink]="['/geregistreerde/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jhipsterWlsApp.geregistreerde.home.createLabel">
+            Create a new Geregistreerde
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterWlsApp.geregistreerde.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="geregistreerdes?.length === 0">
+        <span jhiTranslate="jhipsterWlsApp.geregistreerde.home.notFound">No geregistreerdes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="geregistreerdes && geregistreerdes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="voornamen"><span jhiTranslate="jhipsterWlsApp.geregistreerde.voornamen">Voornamen</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="achternaam"><span jhiTranslate="jhipsterWlsApp.geregistreerde.achternaam">Achternaam</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="geboortedatum"><span jhiTranslate="jhipsterWlsApp.geregistreerde.geboortedatum">Geboortedatum</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="geboorteplaats"><span jhiTranslate="jhipsterWlsApp.geregistreerde.geboorteplaats">Geboorteplaats</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="registerNummer"><span jhiTranslate="jhipsterWlsApp.geregistreerde.registerNummer">Register Nummer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="classificatie"><span jhiTranslate="jhipsterWlsApp.geregistreerde.classificatie">Classificatie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personeelnummer"><span jhiTranslate="jhipsterWlsApp.geregistreerde.personeelnummer">Personeelnummer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mailadres"><span jhiTranslate="jhipsterWlsApp.geregistreerde.mailadres">Mailadres</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telefoonNummer"><span jhiTranslate="jhipsterWlsApp.geregistreerde.telefoonNummer">Telefoon Nummer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mobieleNummer"><span jhiTranslate="jhipsterWlsApp.geregistreerde.mobieleNummer">Mobiele Nummer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="verantwoordelijkeCrest"><span jhiTranslate="jhipsterWlsApp.geregistreerde.verantwoordelijkeCrest">Verantwoordelijke Crest</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="naam"><span jhiTranslate="jhipsterWlsApp.geregistreerde.naam">Naam</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="verantwoordelijkeCrest.id"><span jhiTranslate="jhipsterWlsApp.geregistreerde.verantwoordelijkeCrest">Verantwoordelijke Crest</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="naam.id"><span jhiTranslate="jhipsterWlsApp.geregistreerde.naam">Naam</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="classificatie.id"><span jhiTranslate="jhipsterWlsApp.geregistreerde.classificatie">Classificatie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let geregistreerde of geregistreerdes ;trackBy: trackId">
+                    <td><a [routerLink]="['/geregistreerde', geregistreerde.id, 'view']">{{ geregistreerde.id }}</a></td>
+                    <td>{{ geregistreerde.voornamen }}</td>
+                    <td>{{ geregistreerde.achternaam }}</td>
+                    <td>{{ geregistreerde.geboortedatum | date:'medium' }}</td>
+                    <td>{{ geregistreerde.geboorteplaats }}</td>
+                    <td>{{ geregistreerde.registerNummer }}</td>
+                    <td>{{ geregistreerde.classificatie }}</td>
+                    <td>{{ geregistreerde.personeelnummer }}</td>
+                    <td>{{ geregistreerde.mailadres }}</td>
+                    <td>{{ geregistreerde.telefoonNummer }}</td>
+                    <td>{{ geregistreerde.mobieleNummer }}</td>
+                    <td>{{ geregistreerde.verantwoordelijkeCrest }}</td>
+                    <td>{{ geregistreerde.naam }}</td>
+                    <td>
+                        <div *ngIf="geregistreerde.verantwoordelijkeCrest">
+                            <a [routerLink]="['/crest', geregistreerde.verantwoordelijkeCrest?.id, 'view']" >{{ geregistreerde.verantwoordelijkeCrest?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geregistreerde.naam">
+                            <a [routerLink]="['/medewerker', geregistreerde.naam?.id, 'view']" >{{ geregistreerde.naam?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geregistreerde.classificatie">
+                            <a [routerLink]="['/classificatie', geregistreerde.classificatie?.id, 'view']" >{{ geregistreerde.classificatie?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/geregistreerde', geregistreerde.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/geregistreerde', geregistreerde.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(geregistreerde)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="geregistreerdes && geregistreerdes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

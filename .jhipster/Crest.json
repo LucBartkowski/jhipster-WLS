@@ -1,0 +1,38 @@
+{
+  "name": "Crest",
+  "fields": [
+    {
+      "fieldName": "verantwoordelijkeCrest",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "naamEntiteit",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geregistreerde",
+      "otherEntityRelationshipName": "verantwoordelijkeCrest",
+      "relationshipName": "geregistreerde"
+    }
+  ],
+  "changelogDate": "20210315162746",
+  "entityTableName": "crest",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

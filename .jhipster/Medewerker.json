@@ -1,0 +1,39 @@
+{
+  "name": "Medewerker",
+  "fields": [
+    {
+      "fieldName": "naam",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "functie",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geregistreerde",
+      "otherEntityRelationshipName": "naam",
+      "javadoc": "A relationship",
+      "relationshipName": "geregistreerde"
+    }
+  ],
+  "changelogDate": "20210315162846",
+  "entityTableName": "medewerker",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

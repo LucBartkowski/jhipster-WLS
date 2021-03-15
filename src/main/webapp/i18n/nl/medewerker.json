@@ -1,0 +1,25 @@
+{
+  "jhipsterWlsApp": {
+    "medewerker": {
+      "home": {
+        "title": "Medewerkers",
+        "createLabel": "Maak een nieuwe Medewerker",
+        "createOrEditLabel": "Maak of wijzig een Medewerker",
+        "search": "Search for Medewerker",
+        "notFound": "No Medewerkers found"
+      },
+      "created": "A new Medewerker is created with identifier {{ param }}",
+      "updated": "A Medewerker is updated with identifier {{ param }}",
+      "deleted": "A Medewerker is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Medewerker {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Medewerker"
+      },
+      "naam": "Naam",
+      "functie": "Functie",
+      "geregistreerde": "Geregistreerde"
+    }
+  }
+}

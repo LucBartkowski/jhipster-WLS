@@ -1,0 +1,111 @@
+{
+  "name": "Geregistreerde",
+  "fields": [
+    {
+      "fieldName": "voornamen",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "achternaam",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "geboortedatum",
+      "fieldType": "Instant",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "geboorteplaats",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "registerNummer",
+      "fieldType": "Long",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "classificatie",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "personeelnummer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mailadres",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefoonNummer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobieleNummer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "verantwoordelijkeCrest",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "naam",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "crest",
+      "otherEntityRelationshipName": "geregistreerde",
+      "relationshipName": "verantwoordelijkeCrest",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medewerker",
+      "otherEntityRelationshipName": "geregistreerde",
+      "relationshipName": "naam",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "classificatie",
+      "otherEntityRelationshipName": "geregistreerde",
+      "relationshipName": "classificatie",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210315162546",
+  "entityTableName": "geregistreerde",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

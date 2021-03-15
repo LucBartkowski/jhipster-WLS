@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Geregistreerde.
+    -->
+    <changeSet id="20210315162546-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="verantwoordelijke_crest_id"
+                                 baseTableName="geregistreerde"
+                                 constraintName="fk_geregistreerde_verantwoordelijke_crest_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="crest"/>
+
+        <addForeignKeyConstraint baseColumnNames="naam_id"
+                                 baseTableName="geregistreerde"
+                                 constraintName="fk_geregistreerde_naam_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medewerker"/>
+
+        <addForeignKeyConstraint baseColumnNames="classificatie_id"
+                                 baseTableName="geregistreerde"
+                                 constraintName="fk_geregistreerde_classificatie_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="classificatie"/>
+
+    </changeSet>
+</databaseChangeLog>

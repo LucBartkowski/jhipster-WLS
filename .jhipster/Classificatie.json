@@ -1,0 +1,42 @@
+{
+  "name": "Classificatie",
+  "fields": [
+    {
+      "fieldName": "classificatie",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "kleur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "omschrijving",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geregistreerde",
+      "otherEntityRelationshipName": "classificatie",
+      "relationshipName": "geregistreerde"
+    }
+  ],
+  "changelogDate": "20210315162646",
+  "entityTableName": "classificatie",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

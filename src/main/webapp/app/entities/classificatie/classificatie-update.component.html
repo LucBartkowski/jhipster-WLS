@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-classificatie-heading" jhiTranslate="jhipsterWlsApp.classificatie.home.createOrEditLabel">Create or edit a Classificatie</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.classificatie.classificatie" for="field_classificatie">Classificatie</label>
+                    <input type="text" class="form-control" name="classificatie" id="field_classificatie"
+                           formControlName="classificatie"/>
+                    <div *ngIf="editForm.get('classificatie')!.invalid && (editForm.get('classificatie')!.dirty || editForm.get('classificatie')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('classificatie')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.classificatie.kleur" for="field_kleur">Kleur</label>
+                    <input type="text" class="form-control" name="kleur" id="field_kleur"
+                           formControlName="kleur"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterWlsApp.classificatie.omschrijving" for="field_omschrijving">Omschrijving</label>
+                    <input type="text" class="form-control" name="omschrijving" id="field_omschrijving"
+                           formControlName="omschrijving"/>
+                    <div *ngIf="editForm.get('omschrijving')!.invalid && (editForm.get('omschrijving')!.dirty || editForm.get('omschrijving')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('omschrijving')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

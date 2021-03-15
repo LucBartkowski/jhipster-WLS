@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="geregistreerde">
+            <h2><span jhiTranslate="jhipsterWlsApp.geregistreerde.detail.title">Geregistreerde</span> {{ geregistreerde.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.voornamen">Voornamen</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.voornamen }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.achternaam">Achternaam</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.achternaam }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.geboortedatum">Geboortedatum</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.geboortedatum }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.geboorteplaats">Geboorteplaats</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.geboorteplaats }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.registerNummer">Register Nummer</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.registerNummer }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.classificatie">Classificatie</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.classificatie }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.personeelnummer">Personeelnummer</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.personeelnummer }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.mailadres">Mailadres</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.mailadres }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.telefoonNummer">Telefoon Nummer</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.telefoonNummer }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.mobieleNummer">Mobiele Nummer</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.mobieleNummer }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.verantwoordelijkeCrest">Verantwoordelijke Crest</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.verantwoordelijkeCrest }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.naam">Naam</span></dt>
+                <dd>
+                    <span>{{ geregistreerde.naam }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.verantwoordelijkeCrest">Verantwoordelijke Crest</span></dt>
+                <dd>
+                    <div *ngIf="geregistreerde.verantwoordelijkeCrest">
+                        <a [routerLink]="['/crest', geregistreerde.verantwoordelijkeCrest?.id, 'view']">{{ geregistreerde.verantwoordelijkeCrest?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.naam">Naam</span></dt>
+                <dd>
+                    <div *ngIf="geregistreerde.naam">
+                        <a [routerLink]="['/medewerker', geregistreerde.naam?.id, 'view']">{{ geregistreerde.naam?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterWlsApp.geregistreerde.classificatie">Classificatie</span></dt>
+                <dd>
+                    <div *ngIf="geregistreerde.classificatie">
+                        <a [routerLink]="['/classificatie', geregistreerde.classificatie?.id, 'view']">{{ geregistreerde.classificatie?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/geregistreerde', geregistreerde.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
